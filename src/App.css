@@ -1,0 +1,19 @@
+body, html, #root {
+	min-height: 100%;
+	background-color: #f8f8f8;
+}
+
+.app {
+	padding: 5% 20%;
+	height: 100%;
+}
+
+.content {
+	margin-top: 2%;
+}
+
+.content h2 {
+	padding-bottom: .2em;
+	margin-bottom: 1em;
+	border-bottom: 1px solid #bdbdbd;
+}

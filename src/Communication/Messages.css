@@ -1,0 +1,14 @@
+.messages blockquote {
+	font-style: normal;
+	margin-bottom: 2em;
+	white-space: pre-wrap;
+}
+
+.messages blockquote.announcement {
+	border-color: #1c86f2;
+}
+
+.messages blockquote.warning {
+	border-color: #f03c69;
+	color: rgba(49,52,57,.65);
+}

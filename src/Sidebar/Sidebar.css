@@ -1,0 +1,31 @@
+.sidebar {
+	padding: 0 0 0 1em;
+}
+
+.sidebar .menu {
+	border-bottom: 1px solid #bdbdbd;
+	padding-bottom: 1em;
+}
+
+.sidebar h1 {
+	font-size: 1.7em;
+	margin-bottom: 0;
+}
+
+.sidebar a {
+	text-decoration: none;
+}
+
+.sidebar .subtitle {
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #676b72;
+	margin-bottom: 32px;
+}
+
+.sidebar .category {
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #676b72;
+	margin: 16px 0 4px 0;
+}
