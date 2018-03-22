@@ -4,10 +4,33 @@
 		<meta charset="UTF-8" />
 		<title>Reslife DeskApp | Staff Logins</title>
 
-		<link rel="stylesheet" href="index.css" />
+		<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
+
 		<link rel="stylesheet" href="/public/lib/kube/kube.css" />
+		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
-		<h1>This is a test.</h1>
+		<div id="container">
+			<h1>Reslife DeskApp</h1>
+			<h2>Log in</h2>
+
+			<div id="login-box">
+				<form method="POST" action="" class="form">
+					<div class="form-item">
+						<label>Email</label>
+						<input type="email" name="email" />
+					</div>
+
+					<div class="form-item">
+						<label>Password</label>
+						<input type="password" name="password" />
+					</div>
+
+					<div class="form-item">
+						<button>Log in</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>
