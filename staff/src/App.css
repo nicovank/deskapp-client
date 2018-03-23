@@ -23,3 +23,11 @@ body {
 	margin-bottom: 1em;
 	border-bottom: 1px solid #bdbdbd;
 }
+
+textarea {
+	resize: vertical;
+}
+
+.right-align {
+	text-align: right;
+}

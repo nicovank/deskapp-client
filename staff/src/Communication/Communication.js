@@ -25,7 +25,17 @@ class Communication extends Component {
 	render() {
 		return (
 			<div>
-				<h2>Communication</h2>
+				<h2>Communication Log</h2>
+
+                <div className="form-item">
+                    <textarea name="message" rows="3"></textarea>
+                </div>
+                <div className="form-item right-align">
+                    <button>Post</button>
+                </div>
+
+                <h4>Previous posts</h4>
+
 				{this.state.messages}
 			</div>
 		);
