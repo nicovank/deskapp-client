@@ -24,8 +24,8 @@
 
 				<form method="POST" action="/login/" class="form" autocomplete="off">
 					<div class="form-item">
-						<label>Email</label>
-						<input type="email" name="email" />
+						<label>Email or ID</label>
+						<input type="text" name="user" />
 					</div>
 
 					<div class="form-item">
