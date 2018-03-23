@@ -47,7 +47,7 @@ class Sidebar extends Component {
 					</ul>
 
 					<div className="row align-right">
-						<button className="button secondary outline small">Log out</button>
+						<a href="/logout"><button className="button secondary outline small">Log out</button></a>
 					</div>
 				</div>
 			</div>
