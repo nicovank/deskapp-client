@@ -3,9 +3,7 @@ html, body {
 }
 
 body {
-	background-image: url(/public/bg.jpg);
-	background-repeat: no-repeat;
-	background-position: right top;
+	background: url(/public/bg.jpg) no-repeat right top;
 
 	border-top: 5px solid #222;
 
