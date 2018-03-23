@@ -4,7 +4,6 @@ html, body {
 
 body {
 	background: url(/public/bg.jpg) no-repeat right top;
-
 	border-top: 5px solid #222;
 
 	display: flex;

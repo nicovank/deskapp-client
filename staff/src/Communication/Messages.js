@@ -2,38 +2,6 @@ import React, { Component } from "react";
 
 import "./Messages.css"
 
-/** 
- * Serialize transforms an object to a serialized, form data-like string that the servlet will be able to use.
- * 
- * Example:
- * 
- * 		{
- * 			page: 0,
- * 			username: "nicovank"
- * 		}
- * 
- * Will be converted to:
- * 
- * 		"page=0&username=nicovank"
- * 
- * Nested properties will not be serialized.
- * 
-*/
-const serialize = obj => {
-	let output = "";
-	for (let property in obj) {
-		if (typeof obj[property] !== "object") {
-			output += property + "=" + obj[property] + "&";
-		}
-	}
-
-	if (output !== "") {
-		output = output.substring(0, output.length - 1);
-	}
-
-	return output;
-}
-
 class Messages extends Component {
 	// Calls fetchMessages().
 	constructor(props) {
@@ -58,14 +26,16 @@ class Messages extends Component {
 	// Fetch Messages from the Server and update state of the component.
 	fetchMessages() {
 
-		fetch("http://localhost:8080/api/communication", {
+		fetch("/api/communication/list", {
 			method: "POST",
+			credentials: 'same-origin',
 			headers: {
 				"Accept": "application/json",
-				"Content-Type": "application/x-www-form-urlencoded"
+				"Content-Type": "application/json"
 			},
-			body: serialize({
-				page: this.props.page
+			body: JSON.stringify({
+				page: this.props.page,
+				building: "MACKIN"
 			})
 		})
 			.then(res => res.json())

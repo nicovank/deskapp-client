@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import "./Sidebar.css";
 
@@ -8,36 +8,36 @@ class Sidebar extends Component {
 		return (
 			<div className="sidebar col col-3">
 				<div className="menu">
-					<h1><NavLink to='/'>Reslife DeskApp</NavLink></h1>
+					<h1><Link to="/staff/build/">Reslife DeskApp</Link></h1>
 					<p className="small subtitle">Mackin</p>
 
 					<ul className="unstyled">
-						<li><NavLink to="/communication">Communication Log</NavLink></li>
+						<li><Link to="/staff/build/communication">Communication Log</Link></li>
 					</ul>
 
 					<p className="small category">Equipement</p>
 					<ul className="unstyled">
-						<li><NavLink to="/equipment/log">Log in / out</NavLink></li>
-						<li><NavLink to="/equipment/list">List equipment rented out</NavLink></li>
-						<li><NavLink to="/equipment/manage">Manage equipment</NavLink></li>
+						<li><Link to="/staff/build/equipment/log">Log in / out</Link></li>
+						<li><Link to="/staff/build/equipment/list">List equipment rented out</Link></li>
+						<li><Link to="/staff/build/equipment/manage">Manage equipment</Link></li>
 					</ul>
 
 					<p className="small category">Keys</p>
 					<ul className="unstyled">
-						<li><NavLink to="/keys/log">Log in / out</NavLink></li>
-						<li><NavLink to="/keys/list">List keys rented out</NavLink></li>
-						<li><NavLink to="/keys/manage">Manage keys</NavLink></li>
+						<li><Link to="/staff/build/keys/log">Log in / out</Link></li>
+						<li><Link to="/staff/build/keys/list">List keys rented out</Link></li>
+						<li><Link to="/staff/build/keys/manage">Manage keys</Link></li>
 					</ul>
 
 					<p className="small category">Residents</p>
 					<ul className="unstyled">
-						<li><NavLink to="/residents/warning">Give a warning</NavLink></li>
-						<li><NavLink to="/residents/manage">Manage residents</NavLink></li>
+						<li><Link to="/staff/build/residents/warning">Give a warning</Link></li>
+						<li><Link to="/staff/build/residents/manage">Manage residents</Link></li>
 					</ul>
 
 					<p className="small category">General Administration</p>
 					<ul className="unstyled">
-						<li><NavLink to="/admin/users">Users</NavLink></li>
+						<li><Link to="/staff/build/admin/users">Users</Link></li>
 					</ul>
 
 					<p className="small category">External Links</p>

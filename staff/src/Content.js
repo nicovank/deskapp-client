@@ -9,9 +9,9 @@ class Content extends Component {
 		return (
 			<div className="content col offset-1 col-8">
 				<Switch>
-					<Route exact path="/" component={Home}></Route>
-					<Route exact path="/communication" component={Communication}></Route>
-					<Route exact path="/communication/:page" component={Communication}></Route>
+					<Route exact path="/staff/build/" component={Home}></Route>
+					<Route exact path="/staff/build/communication" component={Communication}></Route>
+					<Route exact path="/staff/build/communication/:page" component={Communication}></Route>
 				</Switch>
 			</div>
 		);
