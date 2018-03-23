@@ -9,7 +9,9 @@ class Communication extends Component {
 		const page = parseInt(props.match.params.page, 10) | 0;
 
 		this.state = {
-			messages: <Messages amount={10} page={page}></Messages>
+			messages: <Messages amount={10} page={page}></Messages>,
+			message: "",
+			error: false
 		};
 	}
 
@@ -22,16 +24,48 @@ class Communication extends Component {
 		});
 	}
 
+	handleChange(event) {
+		this.setState({
+			message: event.target.value,
+			error: false
+		});
+	}
+
+	postMessage() {
+		if (this.state.message === "") {
+			this.setState({error: true});
+			return;
+		}
+
+		fetch("/api/communication/add", {
+        	method: "POST",
+        	credentials: 'same-origin',
+        	headers: {
+        		"Content-Type": "application/json"
+        	},
+        	body: JSON.stringify({
+        		message: this.state.message
+        	})
+        })
+        	// super hacky stuff. Would be better to add it to the messages.
+        	.then(() => window.location.reload())
+        	.catch(e => alert(e));
+	}
+
 	render() {
 		return (
 			<div>
 				<h2>Communication Log</h2>
 
                 <div className="form-item">
-                    <textarea name="message" rows="3"></textarea>
+                    <textarea name="message" rows="3"
+                    	value={this.state.message}
+                    	onChange={this.handleChange.bind(this)}
+                    	className={this.state.error ? "error" : ""}
+                    />
                 </div>
                 <div className="form-item right-align">
-                    <button>Post</button>
+                    <button onClick={this.postMessage.bind(this)}>Post</button>
                 </div>
 
                 <h4>Previous posts</h4>

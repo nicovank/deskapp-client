@@ -50,7 +50,7 @@ class Messages extends Component {
 						<blockquote key={message.id} className={message.importance}>
 							<p>{message.message}</p>
 
-							<p className="small"> — <b>{message.user}</b>, &nbsp;
+							<p className="small"> — <b>{message.firstName} {message.lastName}</b>, &nbsp;
 							<span className="smaller">{new Date(message.time).toLocaleString()}</span></p>
 						</blockquote>
 					);
