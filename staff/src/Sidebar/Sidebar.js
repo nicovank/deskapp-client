@@ -8,36 +8,36 @@ class Sidebar extends Component {
 		return (
 			<div className="sidebar col col-3">
 				<div className="menu">
-					<h1><Link to="/staff/build/">Reslife DeskApp</Link></h1>
+					<h1><Link to="/">Reslife DeskApp</Link></h1>
 					<p className="small subtitle">Mackin</p>
 
 					<ul className="unstyled">
-						<li><Link to="/staff/build/communication">Communication Log</Link></li>
+						<li><Link to="/communication">Communication Log</Link></li>
 					</ul>
 
 					<p className="small category">Equipement</p>
 					<ul className="unstyled">
-						<li><Link to="/staff/build/equipment/log">Log in / out</Link></li>
-						<li><Link to="/staff/build/equipment/list">List equipment rented out</Link></li>
-						<li><Link to="/staff/build/equipment/manage">Manage equipment</Link></li>
+						<li><Link to="/equipment/log">Log in / out</Link></li>
+						<li><Link to="/equipment/list">List equipment rented out</Link></li>
+						<li><Link to="/equipment/manage">Manage equipment</Link></li>
 					</ul>
 
 					<p className="small category">Keys</p>
 					<ul className="unstyled">
-						<li><Link to="/staff/build/keys/log">Log in / out</Link></li>
-						<li><Link to="/staff/build/keys/list">List keys rented out</Link></li>
-						<li><Link to="/staff/build/keys/manage">Manage keys</Link></li>
+						<li><Link to="/keys/log">Log in / out</Link></li>
+						<li><Link to="/keys/list">List keys rented out</Link></li>
+						<li><Link to="/keys/manage">Manage keys</Link></li>
 					</ul>
 
 					<p className="small category">Residents</p>
 					<ul className="unstyled">
-						<li><Link to="/staff/build/residents/warning">Give a warning</Link></li>
-						<li><Link to="/staff/build/residents/manage">Manage residents</Link></li>
+						<li><Link to="/residents/warning">Give a warning</Link></li>
+						<li><Link to="/residents/manage">Manage residents</Link></li>
 					</ul>
 
 					<p className="small category">General Administration</p>
 					<ul className="unstyled">
-						<li><Link to="/staff/build/admin/users">Users</Link></li>
+						<li><Link to="/admin/users">Users</Link></li>
 					</ul>
 
 					<p className="small category">External Links</p>
