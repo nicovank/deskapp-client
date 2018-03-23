@@ -15,7 +15,14 @@
 			<h2>Log in</h2>
 
 			<div id="login-box">
-				<form method="POST" action="" class="form" autocomplete="off">
+
+				<% if (request.getAttribute("error") != null) { %>
+					<div class="message error">
+						<%= request.getAttribute("error") %>
+					</div>
+				<% } %>
+
+				<form method="POST" action="/login/" class="form" autocomplete="off">
 					<div class="form-item">
 						<label>Email</label>
 						<input type="email" name="email" />
