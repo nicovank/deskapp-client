@@ -5,6 +5,8 @@ body, html, #root {
 body {
 	background: url(/public/bg.jpg) no-repeat right top;
 	border-top: 5px solid #222;
+	overflow-y: scroll;
+	word-break: break-all;
 }
 
 .app {
