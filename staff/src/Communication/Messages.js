@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./Messages.css"
+import "./Messages.css";
 
 class Messages extends Component {
 	// Calls fetchMessages().
@@ -53,11 +53,11 @@ class Messages extends Component {
 							<span className="smaller">{new Date(message.time).toLocaleString()}</span></p>
 						</blockquote>
 					);
-
-					this.setState({
-						html: messageArray
-					});
 				}
+
+				this.setState({
+					html: messageArray
+				});
 			})
 			.catch(e => {
 				console.log(e);
