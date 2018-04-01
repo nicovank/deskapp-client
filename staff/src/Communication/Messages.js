@@ -34,8 +34,7 @@ class Messages extends Component {
 				"Content-Type": "application/json"
 			},
 			body: JSON.stringify({
-				page: this.props.page,
-				building: "MACKIN"
+				page: this.props.page
 			})
 		})
 			.then(res => res.json())
