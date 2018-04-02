@@ -22,7 +22,7 @@ class LogList extends Component {
                     <td>{record.equipment.id}</td>
                     <td>{record.equipment.name}</td>
                     <td>{record.employee.firstName} {record.employee.lastName}</td>
-                    <td>{record.time}</td>
+                    <td>{new Date(record.timeOut).toLocaleString()}</td>
                 </tr>
             );
         }
@@ -34,7 +34,7 @@ class LogList extends Component {
 
     fetchData() {
         fetch("/api/equipment/rented", {
-            method: "POST",
+            method: "GET",
             credentials: 'same-origin',
             headers: {
                 "Accept": "application/json"
