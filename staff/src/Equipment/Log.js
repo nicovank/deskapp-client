@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import LogList from "./LogList.js"
+
 class Log extends Component {
 
     constructor(props) {
@@ -40,9 +42,11 @@ class Log extends Component {
                         </div>
 
                         <div className="form-item right-align">
-                            <button onClick={this.log.bind(this)}>Post</button>
+                            <button onClick={this.log.bind(this)}>Submit</button>
                         </div>
                     </form>
+
+                    <LogList></LogList>
                 </div>
             </div>
         );
