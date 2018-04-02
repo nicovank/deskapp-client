@@ -22,7 +22,7 @@ class Log extends Component {
     }
 
     log() {
-        alert(this.state.student + " , " + this.state.equipment)
+        // TO DO
     }
 
     render() {
