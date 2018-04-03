@@ -58,8 +58,8 @@ class Communication extends Component {
 				<h2>Communication Log</h2>
 
                 <div className="form-item">
-                    <textarea name="message" rows="3"
-                    	value={this.state.message}
+                    <textarea name="message" rows="3" autoFocus
+						value={this.state.message}
                     	onChange={this.handleChange.bind(this)}
                     	className={this.state.error ? "error" : ""}
                     />

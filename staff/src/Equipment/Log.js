@@ -20,7 +20,7 @@ class Log extends Component {
     handleEquipmentIDChange(event) {
         this.setState({ equipment: event.target.value });
     }
-
+    
     log() {
         // TO DO
     }
@@ -33,7 +33,9 @@ class Log extends Component {
                     <form className="form col col-6 offset-3">
                         <div className="form-item">
                             <label>Student ID <span className="req">*</span></label>
-                            <input type="text" onChange={this.handleStudentIDChange.bind(this)}></input>
+                            <input type="text" autoFocus
+                                onChange={this.handleStudentIDChange.bind(this)}>
+                            </input>
                         </div>
 
                         <div className="form-item">

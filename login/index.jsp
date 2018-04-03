@@ -25,7 +25,7 @@
 				<form method="POST" action="/login/" class="form" autocomplete="off">
 					<div class="form-item">
 						<label>Email or ID</label>
-						<input type="text" name="user" />
+						<input type="text" name="user" autofocus="autofocus" />
 					</div>
 
 					<div class="form-item">
