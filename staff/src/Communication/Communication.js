@@ -9,7 +9,7 @@ class Communication extends Component {
 		const page = parseInt(props.match.params.page, 10) | 0;
 
 		this.state = {
-			messages: <Messages amount={10} page={page}></Messages>,
+			messages: <Messages page={page}></Messages>,
 			message: "",
 			error: false
 		};
@@ -20,7 +20,7 @@ class Communication extends Component {
 		const page = parseInt(props.match.params.page, 10) | 0;
 
 		this.setState({
-			messages: <Messages amount={10} page={page}></Messages>
+			messages: <Messages page={page}></Messages>
 		});
 	}
 
@@ -47,8 +47,11 @@ class Communication extends Component {
         		message: this.state.message
         	})
         })
-        	// super hacky stuff. Would be better to add it to the messages.
-        	.then(() => window.location.reload())
+        	.then(() => {
+				this.setState({
+					messages: <Messages page={0}></Messages>
+				});
+			})
         	.catch(e => alert(e));
 	}
 
