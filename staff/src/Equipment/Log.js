@@ -18,11 +18,30 @@ class Log extends Component {
     }
 
     handleEquipmentIDChange(event) {
-        this.setState({ equipment: event.target.value });
+        this.setState({ equipment: event.target.value, error: false });
     }
     
     log() {
-        // TO DO
+        if (this.state.equipment === "") {
+			this.setState({error: true});
+			return;
+        }
+        
+        fetch("/api/equipment/log", {
+        	method: "POST",
+        	credentials: 'same-origin',
+        	headers: {
+        		"Content-Type": "application/json"
+        	},
+        	body: JSON.stringify({
+                equipment: this.state.equipment,
+                resident: this.state.student
+        	})
+        })
+        	.then(() => {
+				window.location.reload();
+			})
+        	.catch(e => alert(e));
     }
 
     render() {
@@ -40,7 +59,10 @@ class Log extends Component {
 
                         <div className="form-item">
                             <label>Equipment ID <span className="req">*</span></label>
-                            <input type="text" onChange={this.handleEquipmentIDChange.bind(this)}></input>
+                            <input type="text"
+                                className={this.state.error ? "error" : ""}
+                                onChange={this.handleEquipmentIDChange.bind(this)}>
+                            </input>
                         </div>
 
                         <div className="form-item right-align">
