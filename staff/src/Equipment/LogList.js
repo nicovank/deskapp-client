@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import { Link } from 'react-router-dom';
+
 class LogList extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +21,7 @@ class LogList extends Component {
                 <tr>
                     <td>{record.resident.id}</td>
                     <td>{record.resident.firstName} {record.resident.lastName}</td>
-                    <td>{record.equipment.id}</td>
+                    <td><Link to={ "/equipment/id/" + record.equipment.id }>{record.equipment.id}</Link></td>
                     <td>{record.equipment.name}</td>
                     <td>{record.employee.firstName} {record.employee.lastName}</td>
                     <td>{new Date(record.timeOut).toLocaleString()}</td>
