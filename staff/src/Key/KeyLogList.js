@@ -73,4 +73,4 @@ class KeyLogList extends Component {
         );
     }
 }
-export default LogList;
+export default KeyLogList;
