@@ -15,24 +15,22 @@ class Sidebar extends Component {
 						<li><Link to="/communication">Communication Log</Link></li>
 					</ul>
 
-					<p className="small category">Equipement</p>
+					<p className="small category">Equipment</p>
 					<ul className="unstyled">
-						<li><Link to="/equipment/log">Log in / out</Link></li>
-						<li><Link to="/equipment/list">List equipment rented out</Link></li>
-						<li><Link to="/equipment/manage">Manage equipment</Link></li>
+						<li><Link to="/equipment/log">Log In / Out</Link></li>
+						<li><Link to="/equipment/manage">Manage Equipment</Link></li>
 					</ul>
 
 					<p className="small category">Keys</p>
 					<ul className="unstyled">
-						<li><Link to="/keys/log">Log in / out</Link></li>
-						<li><Link to="/keys/list">List keys rented out</Link></li>
+						<li><Link to="/keys/log">Log In / Out</Link></li>
 						<li><Link to="/keys/manage">Manage keys</Link></li>
 					</ul>
 
 					<p className="small category">Residents</p>
 					<ul className="unstyled">
-						<li><Link to="/residents/warning">Give a warning</Link></li>
-						<li><Link to="/residents/manage">Manage residents</Link></li>
+						<li><Link to="/residents/warning">Warnings</Link></li>
+						<li><Link to="/residents/manage">Manage Residents</Link></li>
 					</ul>
 
 					<p className="small category">General Administration</p>
