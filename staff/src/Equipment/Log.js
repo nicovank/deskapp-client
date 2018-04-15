@@ -51,7 +51,7 @@ class Log extends Component {
                 <div className="row">
                     <form className="form col col-6 offset-3">
                         <div className="form-item">
-                            <label>Student ID <div class="desc">Not needed while logging out.</div></label>
+                            <label>Student ID <span class="desc">Not needed while logging out.</span></label>
                             <input type="text" autoFocus
                                 onChange={this.handleStudentIDChange.bind(this)}>
                             </input>

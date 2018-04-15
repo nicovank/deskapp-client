@@ -23,8 +23,8 @@ class Sidebar extends Component {
 
 					<p className="small category">Keys</p>
 					<ul className="unstyled">
-						<li><Link to="/keys/log">Log In / Out</Link></li>
-						<li><Link to="/keys/manage">Manage keys</Link></li>
+						<li><Link to="/key/log">Log In / Out</Link></li>
+						<li><Link to="/key/manage">Manage keys</Link></li>
 					</ul>
 
 					<p className="small category">Residents</p>
