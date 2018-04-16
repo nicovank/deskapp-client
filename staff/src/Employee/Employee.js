@@ -1,30 +1,21 @@
 import React, { Component } from "react";
 
+import Modal from "./Modal.js";
+
 class Employee extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            html: <tr>
-                <td colspan="6"><div className="message">Loading data...</div></td>
-                <td>
-                    <button data-component="modal" data-target="#my-modal">Edit</button>
-                    <div id="my-modal" className="modal-box hide">
-                        <div className="modal">
-                            <span className="close"></span>
-                            <div className="modal-header">Modal Header</div>
-                            <div className="modal-body">THIS IS WHERE THE FORM WILL BE.</div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
+            html: <tr><td colspan="7"><div className="message">Loading data...</div></td></tr>
         };
     }
 
     render() {
         return (
             <div>
+                <Modal></Modal>
                 <h2>Employee List</h2>
                 <div className="form-item right-align"> <button>Add</button></div>
                 <table class="bordered striped" >
