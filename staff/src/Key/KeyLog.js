@@ -9,7 +9,7 @@ class KeyLog extends Component {
 
         this.state = {
             student: "",
-            key: ""
+            access: ""
         };
     }
 
@@ -17,24 +17,24 @@ class KeyLog extends Component {
         this.setState({ student: event.target.value });
     }
 
-    handleKeyIDChange(event) {
-        this.setState({ key: event.target.value, error: false });
+    handleAccessIDChange(event) {
+        this.setState({ access: event.target.value, error: false });
     }
     
     log() {
-        if (this.state.key === "") {
+        if (this.state.access === "") {
 			this.setState({error: true});
 			return;
         }
         
-        fetch("/api/key/log", {
+        fetch("/api/keys/log", {
         	method: "POST",
         	credentials: 'same-origin',
         	headers: {
         		"Content-Type": "application/json"
         	},
         	body: JSON.stringify({
-                key: this.state.key,
+                access: this.state.access,
                 resident: this.state.student
         	})
         })
@@ -47,7 +47,7 @@ class KeyLog extends Component {
     render() {
         return (
             <div>
-                <h2>Key Log In/Out</h2>
+                <h2>Key & Fob Log In/Out</h2>
                 <div className="row">
                     <form className="form col col-6 offset-3">
                         <div className="form-item">
@@ -61,7 +61,7 @@ class KeyLog extends Component {
                             <label>Key ID <span className="req">*</span></label>
                             <input type="text"
                                 className={this.state.error ? "error" : ""}
-                                onChange={this.handleKeyIDChange.bind(this)}>
+                                onChange={this.handleAccessIDChange.bind(this)}>
                             </input>
                         </div>
 

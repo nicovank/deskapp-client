@@ -7,7 +7,12 @@ class KeyLogList extends Component {
         super(props);
 
         this.state = {
-            html: <tr><td colspan="6"><div className="message">Loading data...</div></td></tr>,
+            keys: {
+                html: <tr><td colspan="6"><div className="message">Loading data...</div></td></tr>
+            },
+            fobs : {
+                html: <tr><td colspan="6"><div className="message">Loading data...</div></td></tr>
+            },
             data: []
         };
 
@@ -15,27 +20,40 @@ class KeyLogList extends Component {
     }
 
     refreshHTML() {
-        const dataArray = [];
+        const keysArray = [];
+        const fobsArray = [];
+
         for (let record of this.state.data) {
-            dataArray.push(
+
+            const recordHTML = (
                 <tr>
                     <td>{record.resident.id}</td>
                     <td>{record.resident.firstName} {record.resident.lastName}</td>
-                    <td><Link to={ "/key/id/" + record.key.id }>{record.key.id}</Link></td>
-                    <td>{record.key.name}</td>
+                    <td><Link to={ "/keys/id/" + record.access.id }>{record.access.id}</Link></td>
                     <td>{record.employee.firstName} {record.employee.lastName}</td>
                     <td>{new Date(record.timeOut).toLocaleString()}</td>
                 </tr>
             );
+
+            if (record.access.type === "key") {
+                keysArray.push(recordHTML);
+            } else {
+                fobsArray.push(recordHTML);
+            }
         }
 
         this.setState({
-            html: dataArray
+            keys: {
+                html: keysArray
+            },
+            fobs: {
+                html: fobsArray
+            }
         });
     }
 
     fetchData() {
-        fetch("/api/key/rented", {
+        fetch("/api/keys/rented", {
             method: "GET",
             credentials: 'same-origin',
             headers: {
@@ -70,9 +88,10 @@ class KeyLogList extends Component {
                             <th>Employee</th>
                             <th>Time Out</th>
                         </tr>
-                        {this.state.html}
+                        {this.state.keys.html}
                     </table>
                 </div>
+
                 <div>
                 <h3>Fobs Currently Logged Out</h3>
                 <table className="bordered striped" >
@@ -83,7 +102,7 @@ class KeyLogList extends Component {
                         <th>Employee</th>
                         <th>Time Out</th>
                     </tr>
-                    {this.state.html}
+                    {this.state.fobs.html}
                 </table>
             </div>
         </div>
