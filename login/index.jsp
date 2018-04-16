@@ -6,7 +6,7 @@
 
 		<link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet"> 
 
-		<link rel="stylesheet" href="/public/lib/kube/kube.css" />
+		<link rel="stylesheet" href="/public/lib/kube/kube.min.css" />
 		<link rel="stylesheet" href="index.css" />
 	</head>
 	<body>
