@@ -5,6 +5,7 @@ import Home from "./Home/Home.js"
 import Communication from "./Communication/Communication.js"
 import Log from "./Equipment/Log.js"
 import KeyLog from "./Key/KeyLog.js"
+import Employee from "./Employee/Employee.js"
 
 class Content extends Component {
 	render() {
@@ -16,6 +17,7 @@ class Content extends Component {
 					<Route exact path="/communication/:page" component={Communication}></Route>
 					<Route exact path="/equipment/log" component={Log}></Route>
 					<Route exact path="/key/log" component={KeyLog}></Route>
+					<Route exact path="/admin/employees" component={Employee}></Route>
 				</Switch>
 			</div>
 		);

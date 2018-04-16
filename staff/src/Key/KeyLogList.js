@@ -59,17 +59,34 @@ class KeyLogList extends Component {
 
     render() {
         return (
-            <table class="bordered striped" >
-                <tr>
-                    <th>Student ID</th>
-                    <th>Student Name</th>
-                    <th>Key ID</th>
-                    <th>Key Name</th>
-                    <th>Employee</th>
-                    <th>Time Out</th>
-                </tr>
-                {this.state.html}
-            </table >
+            <div>
+                <div>
+                    <h3>Keys Currently Logged Out</h3>
+                    <table className="bordered striped" >
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Key ID</th>
+                            <th>Employee</th>
+                            <th>Time Out</th>
+                        </tr>
+                        {this.state.html}
+                    </table>
+                </div>
+                <div>
+                <h3>Fobs Currently Logged Out</h3>
+                <table className="bordered striped" >
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Fob ID</th>
+                        <th>Employee</th>
+                        <th>Time Out</th>
+                    </tr>
+                    {this.state.html}
+                </table>
+            </div>
+        </div>
         );
     }
 }

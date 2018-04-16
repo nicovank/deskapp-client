@@ -59,17 +59,20 @@ class LogList extends Component {
 
     render() {
         return (
-            <table class="bordered striped" >
-                <tr>
-                    <th>Student ID</th>
-                    <th>Student Name</th>
-                    <th>Equipment ID</th>
-                    <th>Equipment Name</th>
-                    <th>Employee</th>
-                    <th>Time Out</th>
-                </tr>
-                {this.state.html}
-            </table >
+            <div>
+                <h3>Equipments Currently Logged Out</h3>
+                <table class="bordered striped" >
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Equipment ID</th>
+                        <th>Equipment Name</th>
+                        <th>Employee</th>
+                        <th>Time Out</th>
+                    </tr>
+                    {this.state.html}
+                </table>
+            </div>
         );
     }
 }

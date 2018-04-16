@@ -35,7 +35,7 @@ class Sidebar extends Component {
 
 					<p className="small category">General Administration</p>
 					<ul className="unstyled">
-						<li><Link to="/admin/users">Users</Link></li>
+						<li><Link to="/admin/employees">Employees</Link></li>
 					</ul>
 
 					<p className="small category">External Links</p>
