@@ -20,35 +20,35 @@ class Log extends Component {
     handleEquipmentIDChange(event) {
         this.setState({ equipment: event.target.value, error: false });
     }
-    
+
     log() {
         if (this.state.equipment === "") {
-			this.setState({error: true});
-			return;
+            this.setState({ error: true });
+            return;
         }
-        
+
         fetch("/api/equipment/log", {
-        	method: "POST",
-        	credentials: 'same-origin',
-        	headers: {
-        		"Content-Type": "application/json"
-        	},
-        	body: JSON.stringify({
+            method: "POST",
+            credentials: 'same-origin',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
                 equipment: this.state.equipment,
                 resident: this.state.student
-        	})
+            })
         })
-        	.then(() => {
-				window.location.reload();
-			})
-        	.catch(e => alert(e));
+            .then(() => {
+                window.location.reload();
+            })
+            .catch(e => alert(e));
     }
 
     render() {
         return (
-            <div>
+            <div className="w100">
                 <h2>Equipment Log In/Out</h2>
-                <div className="row">
+                <div className="row w100">
                     <form className="form col col-6 offset-3">
                         <div className="form-item">
                             <label>Student ID <span class="desc">Not needed while logging out.</span></label>
@@ -69,9 +69,9 @@ class Log extends Component {
                             <button onClick={this.log.bind(this)}>Submit</button>
                         </div>
                     </form>
-
-                    <LogList></LogList>
                 </div>
+
+                <LogList></LogList>
             </div>
         );
     }

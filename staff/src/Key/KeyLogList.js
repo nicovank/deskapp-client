@@ -10,7 +10,7 @@ class KeyLogList extends Component {
             keys: {
                 html: <tr><td colspan="6"><div className="message">Loading data...</div></td></tr>
             },
-            fobs : {
+            fobs: {
                 html: <tr><td colspan="6"><div className="message">Loading data...</div></td></tr>
             },
             data: []
@@ -29,7 +29,7 @@ class KeyLogList extends Component {
                 <tr>
                     <td>{record.resident.id}</td>
                     <td>{record.resident.firstName} {record.resident.lastName}</td>
-                    <td><Link to={ "/keys/id/" + record.access.id }>{record.access.id}</Link></td>
+                    <td><Link to={"/keys/id/" + record.access.id}>{record.access.id}</Link></td>
                     <td>{record.employee.firstName} {record.employee.lastName}</td>
                     <td>{new Date(record.timeOut).toLocaleString()}</td>
                 </tr>
@@ -77,10 +77,10 @@ class KeyLogList extends Component {
 
     render() {
         return (
-            <div>
-                <div>
+            <div className="w100">
+                <div className="w100">
                     <h3>Keys Currently Logged Out</h3>
-                    <table className="bordered striped" >
+                    <table className="bordered striped w100">
                         <tr>
                             <th>Student ID</th>
                             <th>Student Name</th>
@@ -92,20 +92,22 @@ class KeyLogList extends Component {
                     </table>
                 </div>
 
-                <div>
-                <h3>Fobs Currently Logged Out</h3>
-                <table className="bordered striped" >
-                    <tr>
-                        <th>Student ID</th>
-                        <th>Student Name</th>
-                        <th>Fob ID</th>
-                        <th>Employee</th>
-                        <th>Time Out</th>
-                    </tr>
-                    {this.state.fobs.html}
-                </table>
+                <br />
+
+                <div className="w100">
+                    <h3>Fobs Currently Logged Out</h3>
+                    <table className="bordered striped w100">
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Fob ID</th>
+                            <th>Employee</th>
+                            <th>Time Out</th>
+                        </tr>
+                        {this.state.fobs.html}
+                    </table>
+                </div>
             </div>
-        </div>
         );
     }
 }

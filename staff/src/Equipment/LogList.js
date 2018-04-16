@@ -59,9 +59,9 @@ class LogList extends Component {
 
     render() {
         return (
-            <div>
+            <div className="w100">
                 <h3>Equipments Currently Logged Out</h3>
-                <table class="bordered striped" >
+                <table class="bordered striped w100">
                     <tr>
                         <th>Student ID</th>
                         <th>Student Name</th>
