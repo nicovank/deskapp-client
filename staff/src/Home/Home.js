@@ -5,6 +5,10 @@ class Home extends Component {
 		return (
 			<div>
 				<h2>Home</h2>
+				<figure>
+					<img src="/public/home.jpg"></img>
+					<figcaption>Sheldon Hall</figcaption>
+				</figure>
 			</div>
 		);
 	}

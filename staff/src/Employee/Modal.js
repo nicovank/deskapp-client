@@ -12,7 +12,41 @@ class EmployeeModal extends Component {
 				<div className="modal">
 					<span className="close"></span>
 					<div className="modal-header">Modal Header</div>
-					<div className="modal-body">THIS IS WHERE THE FORM WILL BE.</div>
+					<div className="modal-body">
+						<form className="form">
+							<div className="form-item">
+								<label>Student ID <input type="text"></input></label>
+							</div>
+							<div className="form-item">
+								<label>Building 
+									<select>
+										<option value="Hart">Hart</option>
+										<option value="Funnelle">Funnelle</option>
+									</select>
+								</label>
+							</div>
+							<div className="form-item">
+								<label>First Name <input type="text"></input></label>
+							</div>
+							<div className="form-item">
+								<label>Last Name <input type="text"></input></label>
+							</div>
+							<div className="form-item">
+								<label>Position 
+									<select>
+										<option value="DA">Desk Attendent</option>
+										<option value="RA">Resident Assistant</option>
+									</select>
+								</label>
+							</div>
+							<div className="form-item">
+								<label>Email <input type="text"></input></label>
+							</div>
+							<div className="form-item">
+								<label>Phone Number <input type="text"></input></label>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		);
