@@ -11,7 +11,7 @@ class EmployeeModal extends Component {
 			<div id="employee-modal" className="modal-box hide">
 				<div className="modal">
 					<span className="close"></span>
-					<div className="modal-header">Modal Header</div>
+					<div className="modal-header">Add / Edit Employee</div>
 					<div className="modal-body">
 						<form className="form">
 							<div className="form-item">
@@ -45,6 +45,7 @@ class EmployeeModal extends Component {
 							<div className="form-item">
 								<label>Phone Number <input type="text"></input></label>
 							</div>
+							<button>Submit</button>
 						</form>
 					</div>
 				</div>

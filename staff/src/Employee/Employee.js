@@ -8,8 +8,54 @@ class Employee extends Component {
         super(props);
 
         this.state = {
-            html: <tr><td colspan="7"><div className="message">Loading data...</div></td></tr>
+            html: <tr><td colspan="7"><div className="message">Loading data...</div></td></tr>,
+            data: []
         };
+
+        this.fetchData();
+    }
+
+    refreshHTML() {
+        const dataArray = [];
+        for (let record of this.state.data) {
+            dataArray.push(
+                <tr>
+                    <td>{record.id}</td>
+                    <td>{record.firstName}</td>
+                    <td>{record.lastName}</td>
+                    <td>{record.position}</td>
+                    <td>{record.email}</td>
+                    <td>{record.phoneNb}</td>
+                    <td><button data-component="modal" data-target="#employee-modal">Edit</button></td>
+                </tr>
+            );
+        }
+
+        this.setState({
+            html: dataArray
+        });
+    }
+
+    fetchData() {
+        fetch("/api/employees/list", {
+            method: "GET",
+            credentials: 'same-origin',
+            headers: {
+                "Accept": "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.error !== undefined) {
+                    return Promise.reject(data.error);
+                }
+
+                this.setState({
+                    data: data
+                });
+
+                this.refreshHTML();
+            });
     }
 
     render() {
@@ -28,6 +74,7 @@ class Employee extends Component {
                         <th>Phone Number</th>
                         <th>Options</th>
                     </tr>
+
                     {this.state.html}
                 </table>
             </div>
