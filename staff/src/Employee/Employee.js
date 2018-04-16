@@ -9,7 +9,7 @@ class Employee extends Component {
             html: <tr>
                 <td colspan="6"><div className="message">Loading data...</div></td>
                 <td>
-                    <button data-component="modal" data-target="my-modal">Edit</button>
+                    <button data-component="modal" data-target="#my-modal">Edit</button>
                     <div id="my-modal" className="modal-box hide">
                         <div className="modal">
                             <span className="close"></span>
