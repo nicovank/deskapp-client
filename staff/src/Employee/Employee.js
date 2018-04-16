@@ -6,15 +6,26 @@ class Employee extends Component {
         super(props);
 
         this.state = {
-            student: "",
-            key: ""
+            html: <tr>
+                <td colspan="6"><div className="message">Loading data...</div></td>
+                <td>
+                    <button data-component="modal" data-target="my-modal">Edit</button>
+                    <div id="my-modal" className="modal-box hide">
+                        <div className="modal">
+                            <span className="close"></span>
+                            <div className="modal-header">Modal Header</div>
+                            <div className="modal-body">THIS IS WHERE THE FORM WILL BE.</div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
         };
     }
 
     render() {
         return (
             <div>
-                <h3>Employee List</h3>
+                <h2>Employee List</h2>
                 <div className="form-item right-align"> <button>Add</button></div>
                 <table class="bordered striped" >
                     <tr>
