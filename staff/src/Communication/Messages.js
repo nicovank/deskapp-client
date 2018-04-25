@@ -31,7 +31,8 @@ class Messages extends Component {
 			credentials: 'same-origin',
 			headers: {
 				"Accept": "application/json",
-				"Content-Type": "application/json"
+				"Content-Type": "application/json",
+				"Token": window.globals.token
 			},
 			body: JSON.stringify({
 				page: this.props.page

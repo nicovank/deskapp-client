@@ -41,7 +41,8 @@ class Employee extends Component {
             method: "GET",
             credentials: 'same-origin',
             headers: {
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Token": window.globals.token
             }
         })
             .then(res => res.json())

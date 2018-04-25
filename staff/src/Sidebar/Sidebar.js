@@ -9,7 +9,7 @@ class Sidebar extends Component {
 			<div className="sidebar col col-3">
 				<div className="menu">
 					<h1><Link to="/">Reslife DeskApp</Link></h1>
-					<p className="small subtitle">Mackin</p>
+					<p className="small subtitle">{window.globals.employee.building}</p>
 
 					<ul className="unstyled">
 						<li><Link to="/communication">Communication Log</Link></li>

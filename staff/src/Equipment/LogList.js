@@ -39,7 +39,8 @@ class LogList extends Component {
             method: "GET",
             credentials: 'same-origin',
             headers: {
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "Token": window.globals.token
             }
         })
 
