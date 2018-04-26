@@ -4,7 +4,26 @@ class EmployeeModal extends Component {
 
 	constructor(props) {
 		super(props);
+		this.state = props.student;
 	}
+
+    componentWillReceiveProps(props) {
+		if (props.student === null) {
+
+			// Blank state
+			this.setState({
+				id: "",
+				firstName: "",
+				lastName: "",
+				position: "",
+				email: "",
+				phoneNb: ""
+			});
+
+		} else {
+            this.setState(props.student);
+		}
+    }
 
 	render() {
 		return (
@@ -15,37 +34,29 @@ class EmployeeModal extends Component {
 					<div className="modal-body">
 						<form className="form">
 							<div className="form-item">
-								<label>Student ID <input type="text"></input></label>
+								<label>Student ID <input type="text" value={this.state.id}></input></label>
 							</div>
 							<div className="form-item">
-								<label>Building 
+								<label>First Name <input type="text" value={this.state.firstName}></input></label>
+							</div>
+							<div className="form-item">
+								<label>Last Name <input type="text" value={this.state.lastName}></input></label>
+							</div>
+							<div className="form-item">
+								<label>Position
 									<select>
-										<option value="Hart">Hart</option>
-										<option value="Funnelle">Funnelle</option>
-									</select>
-								</label>
-							</div>
-							<div className="form-item">
-								<label>First Name <input type="text"></input></label>
-							</div>
-							<div className="form-item">
-								<label>Last Name <input type="text"></input></label>
-							</div>
-							<div className="form-item">
-								<label>Position 
-									<select>
-										<option value="DA">Desk Attendent</option>
+										<option value="DA">Desk Attendant</option>
 										<option value="RA">Resident Assistant</option>
 									</select>
 								</label>
 							</div>
 							<div className="form-item">
-								<label>Email <input type="text"></input></label>
+								<label>Email <input type="text" value={this.state.email}></input></label>
 							</div>
 							<div className="form-item">
-								<label>Phone Number <input type="text"></input></label>
+								<label>Phone Number <input type="text" value={this.state.phoneNb}></input></label>
 							</div>
-							<button>Submit</button>
+							<button>Save</button>
 						</form>
 					</div>
 				</div>

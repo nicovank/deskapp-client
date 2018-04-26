@@ -7,12 +7,27 @@ class Employee extends Component {
     constructor(props) {
         super(props);
 
+        window.$('#employee-modal').on('closed.modal', () => {
+            this.fetchData();
+        });
+
         this.state = {
             html: <tr><td colspan="7"><div className="message">Loading data...</div></td></tr>,
-            data: []
+            data: [],
+            selectedStudent: {}
         };
 
         this.fetchData();
+    }
+
+    openModal(studentInfo) {
+        return function() {
+            this.setState({
+                selectedStudent: studentInfo
+            });
+
+            window.$.modalwindow({ target: '#employee-modal' });
+        };
     }
 
     refreshHTML() {
@@ -26,7 +41,7 @@ class Employee extends Component {
                     <td>{record.position}</td>
                     <td>{record.email}</td>
                     <td>{record.phoneNb}</td>
-                    <td><button data-component="modal" data-target="#employee-modal">Edit</button></td>
+                    <td><button onClick={this.openModal(record).bind(this)}>Edit</button></td>
                 </tr>
             );
         }
@@ -62,10 +77,10 @@ class Employee extends Component {
     render() {
         return (
             <div>
-                <Modal></Modal>
+                <Modal student={this.state.selectedStudent}></Modal>
                 <h2>Employee List</h2>
-                <div className="form-item right-align"> <button>Add</button></div>
-                <table class="bordered striped" >
+                <div className="form-item right-align"> <button onClick={this.openModal(null).bind(this)}>Add</button></div>
+                <table className="bordered striped" >
                     <tr>
                         <th>ID</th>
                         <th>First Name</th>
