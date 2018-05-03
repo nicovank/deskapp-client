@@ -5,8 +5,7 @@ import "./Sidebar.css";
 
 class Sidebar extends Component {
 
-	isManager() {
-		console.log(window.globals.employee.position);
+	static isManager() {
 		return window.globals.employee.position === "RHD" || window.globals.employee.position === "AHD";
 	}
 
@@ -24,23 +23,23 @@ class Sidebar extends Component {
 					<p className="small category">Equipment</p>
 					<ul className="unstyled">
 						<li><Link to="/equipment/log">Log In / Out</Link></li>
-						<li><Link to="/equipment/manage" className={this.isManager() ? "" : "hide"}>Manage Equipment</Link></li>
+						<li><Link to="/equipment/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage Equipment</Link></li>
 					</ul>
 
 					<p className="small category">Keys</p>
 					<ul className="unstyled">
 						<li><Link to="/keys/log">Log In / Out</Link></li>
-						<li><Link to="/keys/manage" className={this.isManager() ? "" : "hide"}>Manage keys</Link></li>
+						<li><Link to="/keys/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage keys</Link></li>
 					</ul>
 
 					<p className="small category">Residents</p>
 					<ul className="unstyled">
 						<li><Link to="/residents/warning">Warnings</Link></li>
-						<li><Link to="/residents/manage" className={this.isManager() ? "" : "hide"}>Manage Residents</Link></li>
+						<li><Link to="/residents/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage Residents</Link></li>
 					</ul>
 
-					<p className={this.isManager() ? "small category" : "hide"}>General Administration</p>
-					<ul className={this.isManager() ? "unstyled" : "hide"}>
+					<p className={Sidebar.isManager() ? "small category" : "hide"}>General Administration</p>
+					<ul className={Sidebar.isManager() ? "unstyled" : "hide"}>
 						<li><Link to="/admin/employees">Employees</Link></li>
 					</ul>
 
