@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 
 import Modal from "./Modal.js";
 
@@ -12,7 +12,11 @@ class Employee extends Component {
         });
 
         this.state = {
-            html: <tr><td colSpan="7"><div className="message">Loading data...</div></td></tr>,
+            html: <tr>
+                <td colSpan="7">
+                    <div className="message">Loading data...</div>
+                </td>
+            </tr>,
             data: [],
             selectedEmployee: {},
             selectedID: null
@@ -22,13 +26,38 @@ class Employee extends Component {
     }
 
     openModal(employeeInfo, id) {
-        return function() {
+        return function () {
             this.setState({
                 selectedEmployee: employeeInfo,
                 selectedID: id
             });
 
-            window.$.modalwindow({ target: '#employee-modal' });
+            window.$.modalwindow({target: '#employee-modal'});
+        };
+    }
+
+    delete(employeeInfo, id) {
+        return function () {
+            if (window.confirm(`Do you really want to delete employee ${employeeInfo.firstName} ${employeeInfo.lastName} ?`)) {
+                fetch("/api/employees/delete", {
+                    method: "POST",
+                    credentials: 'same-origin',
+                    headers: {
+                        "Token": window.globals.token
+                    },
+                    body: JSON.stringify({
+                        id: id
+                    })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.error !== undefined) {
+                            return Promise.reject(data.error);
+                        }
+
+                        window.location.reload();
+                    });
+            }
         };
     }
 
@@ -43,7 +72,13 @@ class Employee extends Component {
                     <td>{record.position}</td>
                     <td>{record.email}</td>
                     <td>{record.phoneNb}</td>
-                    <td><button onClick={this.openModal(record, record.id).bind(this)}>Edit</button></td>
+                    <td>
+                        <button onClick={this.openModal(record, record.id).bind(this)}>
+                            <i className="fas fa-edit"></i></button>
+                        &nbsp;
+                        <button onClick={this.delete(record, record.id).bind(this)} className="button secondary">
+                            <i className="fas fa-trash"></i></button>
+                    </td>
                 </tr>
             );
         }
@@ -75,9 +110,13 @@ class Employee extends Component {
                 this.refreshHTML();
             })
             .catch(error => {
-               this.setState({
-                   html: <tr><td colSpan="7"><div className="message error">{error}</div></td></tr>
-               });
+                this.setState({
+                    html: <tr>
+                        <td colSpan="7">
+                            <div className="message error">{error}</div>
+                        </td>
+                    </tr>
+                });
             });
     }
 
@@ -86,8 +125,11 @@ class Employee extends Component {
             <div>
                 <Modal employee={this.state.selectedEmployee}></Modal>
                 <h2>Employee List</h2>
-                <div className="form-item right-align"> <button onClick={this.openModal(null, null).bind(this)}>Add</button></div>
-                <table className="bordered striped" >
+                <div className="form-item right-align">
+                    <button onClick={this.openModal(null, null).bind(this)}>
+                        <i className="fas fa-plus"></i></button>
+                </div>
+                <table className="bordered striped">
                     <tr>
                         <th>ID</th>
                         <th>First Name</th>
