@@ -12,18 +12,20 @@ class Employee extends Component {
         });
 
         this.state = {
-            html: <tr><td colspan="7"><div className="message">Loading data...</div></td></tr>,
+            html: <tr><td colSpan="7"><div className="message">Loading data...</div></td></tr>,
             data: [],
-            selectedStudent: {}
+            selectedEmployee: {},
+            selectedID: null
         };
 
         this.fetchData();
     }
 
-    openModal(studentInfo) {
+    openModal(employeeInfo, id) {
         return function() {
             this.setState({
-                selectedStudent: studentInfo
+                selectedEmployee: employeeInfo,
+                selectedID: id
             });
 
             window.$.modalwindow({ target: '#employee-modal' });
@@ -41,7 +43,7 @@ class Employee extends Component {
                     <td>{record.position}</td>
                     <td>{record.email}</td>
                     <td>{record.phoneNb}</td>
-                    <td><button onClick={this.openModal(record).bind(this)}>Edit</button></td>
+                    <td><button onClick={this.openModal(record, record.id).bind(this)}>Edit</button></td>
                 </tr>
             );
         }
@@ -82,9 +84,9 @@ class Employee extends Component {
     render() {
         return (
             <div>
-                <Modal student={this.state.selectedStudent}></Modal>
+                <Modal employee={this.state.selectedEmployee}></Modal>
                 <h2>Employee List</h2>
-                <div className="form-item right-align"> <button onClick={this.openModal(null).bind(this)}>Add</button></div>
+                <div className="form-item right-align"> <button onClick={this.openModal(null, null).bind(this)}>Add</button></div>
                 <table className="bordered striped" >
                     <tr>
                         <th>ID</th>
