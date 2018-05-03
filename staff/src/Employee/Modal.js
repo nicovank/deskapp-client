@@ -5,6 +5,7 @@ class EmployeeModal extends Component {
     constructor(props) {
         super(props);
         this.state = props.employee;
+        this.state.create = true;
     }
 
     componentWillReceiveProps(props) {
@@ -12,23 +13,29 @@ class EmployeeModal extends Component {
 
             // Blank state
             this.setState({
-                    id: "",
-                    firstName: "",
-                    lastName: "",
-                    position: "DA",
-                    email: "",
-                    phoneNb: ""
-                });
+                id: "",
+                firstName: "",
+                lastName: "",
+                position: "DA",
+                email: "",
+                phoneNb: "",
+                create: true
+            });
 
         } else {
             this.setState(props.employee);
+            this.setState({
+                create: false
+            });
         }
     }
 
     handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
+        if (!event.target.className.includes("disabled")) {
+            this.setState({
+                [event.target.name]: event.target.value
+            });
+        }
     }
 
     submit() {
@@ -41,14 +48,14 @@ class EmployeeModal extends Component {
                 "Content-Type": "application/json",
                 "Token": window.globals.token
             },
-            body: JSON.stringify( {
-                    id: this.state.id,
-                    firstName: this.state.firstName,
-                    lastName: this.state.lastName,
-                    position: this.state.position,
-                    email: this.state.email,
-                    phoneNb: this.state.phoneNb
-                })
+            body: JSON.stringify({
+                id: this.state.id,
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                position: this.state.position,
+                email: this.state.email,
+                phoneNb: this.state.phoneNb
+            })
         })
 
             .then(res => res.json())
@@ -70,38 +77,43 @@ class EmployeeModal extends Component {
                     <div className="modal-body">
                         <form className="form">
                             <div className="form-item">
-                                <label>Student ID <input type="text" name="id" onChange={this.handleChange.bind(this)}
-                                                         value={this.state.id}></input></label>
+                                <label>Student ID <span className="req">*</span></label>
+                                <input type="text" name="id" onChange={this.handleChange.bind(this)}
+                                       className={(this.state.create ? "" : "disabled")}
+                                       value={this.state.id}></input>
                             </div>
                             <div className="form-item">
-                                <label>First Name <input type="text" name="firstName"
-                                                         onChange={this.handleChange.bind(this)}
-                                                         value={this.state.firstName}></input></label>
+                                <label>First Name <span className="req">*</span></label>
+                                <input type="text" name="firstName"
+                                       onChange={this.handleChange.bind(this)}
+                                       value={this.state.firstName}></input>
                             </div>
                             <div className="form-item">
-                                <label>Last Name <input type="text" name="lastName"
-                                                        onChange={this.handleChange.bind(this)}
-                                                        value={this.state.lastName}></input></label>
+                                <label>Last Name <span className="req">*</span></label>
+                                <input type="text" name="lastName"
+                                       onChange={this.handleChange.bind(this)}
+                                       value={this.state.lastName}></input>
                             </div>
                             <div className="form-item">
-                                <label>Position
-                                    <select value={this.state.position} name="position"
-                                            onChange={this.handleChange.bind(this)}>
-                                        <option value="DA">Desk Attendant</option>
-                                        <option value="RA">Resident Assistant</option>
-                                        <option value="AHD">Assistant Hall Director</option>
-                                        <option value="RHD">Residence Hall Director</option>
-                                    </select>
-                                </label>
+                                <label>Position <span className="req">*</span></label>
+                                <select value={this.state.position} name="position"
+                                        onChange={this.handleChange.bind(this)}>
+                                    <option value="DA">Desk Attendant</option>
+                                    <option value="RA">Resident Assistant</option>
+                                    <option value="AHD">Assistant Hall Director</option>
+                                    <option value="RHD">Residence Hall Director</option>
+                                </select>
                             </div>
                             <div className="form-item">
-                                <label>Email <input type="email" name="email" onChange={this.handleChange.bind(this)}
-                                                    value={this.state.email}></input></label>
+                                <label>Email <span className="req">*</span></label>
+                                <input type="email" name="email" onChange={this.handleChange.bind(this)}
+                                       value={this.state.email}></input>
                             </div>
                             <div className="form-item">
-                                <label>Phone Number <input type="phone" name="phoneNb"
-                                                           onChange={this.handleChange.bind(this)}
-                                                           value={this.state.phoneNb}></input></label>
+                                <label>Phone Number </label>
+                                <input type="phone" name="phoneNb"
+                                       onChange={this.handleChange.bind(this)}
+                                       value={this.state.phoneNb}></input>
                             </div>
                             <div id="saveButton" className="button" onClick={this.submit.bind(this)}>Save</div>
                         </form>
