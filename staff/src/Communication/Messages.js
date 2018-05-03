@@ -60,13 +60,12 @@ class Messages extends Component {
 					html: messageArray
 				});
 			})
-			.catch(e => {
-				console.log(e);
+			.catch(error => {
 				this.setState({
 					html: (
 						<div className="message error">
 							<p>There was an error loading messages. The request failed with the following message:</p>
-							<pre>{e.message}</pre>
+							<pre>{error}</pre>
 						</div>
 					)
 				});

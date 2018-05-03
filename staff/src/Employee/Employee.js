@@ -71,6 +71,11 @@ class Employee extends Component {
                 });
 
                 this.refreshHTML();
+            })
+            .catch(error => {
+               this.setState({
+                   html: <tr><td colSpan="7"><div className="message error">{error}</div></td></tr>
+               });
             });
     }
 
