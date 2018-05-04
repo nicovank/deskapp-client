@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import Home from "./Home/Home.js"
 import Communication from "./Communication/Communication.js"
+import History from "./Equipment/History.js"
 import Log from "./Equipment/Log.js"
 import KeyLog from "./Key/KeyLog.js"
 import Employee from "./Employee/Employee.js"
@@ -15,6 +16,7 @@ class Content extends Component {
 					<Route exact path="/" component={Home}></Route>
 					<Route exact path="/communication" component={Communication}></Route>
 					<Route exact path="/communication/:page" component={Communication}></Route>
+                    <Route exact path="/equipment/history/:id" component={History}></Route>
 					<Route exact path="/equipment/log" component={Log}></Route>
 					<Route exact path="/keys/log" component={KeyLog}></Route>
 					<Route exact path="/admin/employees" component={Employee}></Route>

@@ -21,7 +21,7 @@ class LogList extends Component {
                 <tr>
                     <td>{record.resident.id}</td>
                     <td>{record.resident.firstName} {record.resident.lastName}</td>
-                    <td><Link to={ "/equipment/id/" + record.equipment.id }>{record.equipment.id}</Link></td>
+                    <td><Link to={ "/equipment/history/" + record.equipment.id }>{record.equipment.id}</Link></td>
                     <td>{record.equipment.name}</td>
                     <td>{record.employee.firstName} {record.employee.lastName}</td>
                     <td>{new Date(record.timeOut).toLocaleString()}</td>
