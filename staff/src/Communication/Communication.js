@@ -41,7 +41,8 @@ class Communication extends Component {
         	method: "POST",
         	credentials: 'same-origin',
         	headers: {
-        		"Content-Type": "application/json"
+        		"Content-Type": "application/json",
+                "Token": window.globals.token
         	},
         	body: JSON.stringify({
         		message: this.state.message
