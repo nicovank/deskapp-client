@@ -8,7 +8,10 @@ class History extends Component {
         this.state = {
             id: props.match.params.id,
             data: [{
-                equipment: {name: "Loading..."}
+                equipment: {
+                    id: "",
+                    name: "Loading..."
+                }
             }],
             table: <div className="message">Loading history...</div>
         };
@@ -78,7 +81,7 @@ class History extends Component {
     render() {
         return (
             <div className="w100">
-                <h2>Equipment History: {this.state.data[0].equipment.name}</h2>
+                <h2>{this.state.data[0].equipment.name} #{this.state.data[0].equipment.id}</h2>
 
                 {this.state.table}
             </div>
