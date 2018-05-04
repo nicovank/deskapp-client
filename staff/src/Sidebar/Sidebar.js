@@ -45,7 +45,7 @@ class Sidebar extends Component {
 
 					<p className="small category">External Links</p>
 					<ul className="unstyled">
-						<li><a target="_blank" rel="noopener noreferrer" href="https://subitup.com">Clock in / Clock out</a></li>
+						<li><a target="_blank" rel="noopener noreferrer" href="http://sunyoswego.timeclock.subitup.com">Clock in / Clock out</a></li>
 						<li><a target="_blank" rel="noopener noreferrer" href="https://oswego.datacenter.adirondacksolutions.com/oswego_thd_prod/mobile">The Housing Director</a></li>
 					</ul>
 
