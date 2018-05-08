@@ -7,10 +7,6 @@ class Resident extends Component {
     constructor(props) {
         super(props);
 
-        window.$('#resident-modal').on('closed.modal', () => {
-            this.fetchData();
-        });
-
         this.state = {
             html: <tr>
                 <td colSpan="7">
@@ -69,9 +65,9 @@ class Resident extends Component {
                     <td>{record.id}</td>
                     <td>{record.firstName}</td>
                     <td>{record.lastName}</td>
+                    <td>{record.building}</td>
                     <td>{record.roomNb}</td>
                     <td>{record.email}</td>
-                    <td>{record.phoneNb}</td>
                     <td>
                         <button onClick={this.openModal(record, record.id).bind(this)}>
                             <i className="fas fa-edit"></i></button>
@@ -134,9 +130,9 @@ class Resident extends Component {
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
+                        <th>Building</th>
                         <th>Room Number</th>
                         <th>Email</th>
-                        <th>Phone Number</th>
                         <th>Options</th>
                     </tr>
 

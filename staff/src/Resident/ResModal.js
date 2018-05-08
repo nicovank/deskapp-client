@@ -4,7 +4,7 @@ class ResidentModal extends Component {
 
     constructor(props) {
         super(props);
-        this.state = props.employee;
+        this.state = props.resident;
         this.state.create = true;
     }
 
@@ -18,7 +18,7 @@ class ResidentModal extends Component {
                 lastName: "",
                 roomNb: "",
                 email: "",
-                phoneNb: "",
+                building: "",
                 create: true
             });
 
@@ -52,9 +52,9 @@ class ResidentModal extends Component {
                 id: this.state.id,
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
+                building: this.state.building,
                 roomNb: this.state.roomNb,
-                email: this.state.email,
-                phoneNb: this.state.phoneNb
+                email: this.state.email
             })
         })
 
@@ -95,8 +95,14 @@ class ResidentModal extends Component {
                                        value={this.state.lastName}></input>
                             </div>
                             <div className="form-item">
+                                <label>Building <span className="req">*</span></label>
+                                <input type="text" name="building"
+                                       onChange={this.handleChange.bind(this)}
+                                       value={this.state.building}></input>
+                            </div>
+                            <div className="form-item">
                                 <label>Room Number <span className="req">*</span></label>
-                                <input type="room" name="roomNb"
+                                <input type="text" name="roomNb"
                                        onChange={this.handleChange.bind(this)}
                                        value={this.state.roomNb}></input>
                              </div>
@@ -105,12 +111,6 @@ class ResidentModal extends Component {
                                 <input type="email" name="email" 
                                         onChange={this.handleChange.bind(this)}
                                         value={this.state.email}></input>
-                            </div>
-                            <div className="form-item">
-                                <label>Phone Number </label>
-                                <input type="phone" name="phoneNb"
-                                       onChange={this.handleChange.bind(this)}
-                                       value={this.state.phoneNb}></input>
                             </div>
                             <div id="saveButton" className="button" onClick={this.submit.bind(this)}>Save</div>
                         </form>

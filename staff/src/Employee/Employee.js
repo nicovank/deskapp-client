@@ -7,10 +7,6 @@ class Employee extends Component {
     constructor(props) {
         super(props);
 
-        window.$('#employee-modal').on('closed.modal', () => {
-            this.fetchData();
-        });
-
         this.state = {
             html: <tr>
                 <td colSpan="7">
