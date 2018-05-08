@@ -20,16 +20,18 @@ class Sidebar extends Component {
 						<li><Link to="/communication">Communication Log</Link></li>
 					</ul>
 
-					<p className="small category">Equipment</p>
+					<p className="small category">Equipments</p>
 					<ul className="unstyled">
 						<li><Link to="/equipment/log">Log In / Out</Link></li>
-						<li><Link to="/equipment/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage Equipment</Link></li>
+						<li><Link to="/equipment/history">History</Link></li>
+						<li><Link to="/equipment/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage Equipments</Link></li>
 					</ul>
 
 					<p className="small category">Keys</p>
 					<ul className="unstyled">
 						<li><Link to="/keys/log">Log In / Out</Link></li>
-						<li><Link to="/keys/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage keys</Link></li>
+						<li><Link to="/keys/history">History</Link></li>
+						<li><Link to="/keys/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage Keys</Link></li>
 					</ul>
 
 					<p className="small category">Residents</p>

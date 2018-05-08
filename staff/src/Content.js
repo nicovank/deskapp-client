@@ -5,8 +5,10 @@ import Home from "./Home/Home.js"
 import Communication from "./Communication/Communication.js"
 import History from "./Equipment/History.js"
 import Log from "./Equipment/Log.js"
+import KeyHistory from "./Key/KeyHistory.js"
 import KeyLog from "./Key/KeyLog.js"
 import Employee from "./Employee/Employee.js"
+import Resident from "./Resident/Resident.js";
 
 class Content extends Component {
 	render() {
@@ -19,7 +21,10 @@ class Content extends Component {
                     <Route exact path="/equipment/history/:id" component={History}></Route>
 					<Route exact path="/equipment/log" component={Log}></Route>
 					<Route exact path="/keys/log" component={KeyLog}></Route>
+					<Route exact path="/keys/history/:id" component={KeyHistory}></Route>
 					<Route exact path="/admin/employees" component={Employee}></Route>
+					<Route exact path="/residents/manage" component={Resident}></Route>
+
 				</Switch>
 			</div>
 		);
