@@ -29,7 +29,7 @@ class KeyLogList extends Component {
                 <tr>
                     <td>{record.resident.id}</td>
                     <td>{record.resident.firstName} {record.resident.lastName}</td>
-                    <td><Link to={"/keys/id/" + record.access.id}>{record.access.id}</Link></td>
+                    <td><Link to={"/keys/history/" + record.access.id}>{record.access.id}</Link></td>
                     <td>{record.employee.firstName} {record.employee.lastName}</td>
                     <td>{new Date(record.timeOut).toLocaleString()}</td>
                 </tr>

@@ -8,9 +8,9 @@ class KeyHistory extends Component {
         this.state = {
             id: props.match.params.id,
             data: [{
-                equipment: {
-                    id: "",
-                    name: "Loading..."
+                access: {
+                    id: "Loading...",
+                    type: ""
                 }
             }],
             table: <div className="message">Loading history...</div>
@@ -20,7 +20,7 @@ class KeyHistory extends Component {
     }
 
     fetchHistory() {
-        fetch("/api/key/history", {
+        fetch("/api/keys/history", {
             method: "POST",
             credentials: 'same-origin',
             headers: {
@@ -81,7 +81,7 @@ class KeyHistory extends Component {
     render() {
         return (
             <div className="w100">
-                <h2>{this.state.data[0].equipment.name} #{this.state.data[0].equipment.id}</h2>
+                <h2>{this.state.data[0].access.type.toUpperCase()} #{this.state.data[0].access.id}</h2>
 
                 {this.state.table}
             </div>

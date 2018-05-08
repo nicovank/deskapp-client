@@ -69,7 +69,7 @@ class Resident extends Component {
                     <td>{record.id}</td>
                     <td>{record.firstName}</td>
                     <td>{record.lastName}</td>
-                    <td>{record.room}</td>
+                    <td>{record.roomNb}</td>
                     <td>{record.email}</td>
                     <td>{record.phoneNb}</td>
                     <td>
