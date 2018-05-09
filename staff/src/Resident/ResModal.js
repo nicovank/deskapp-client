@@ -96,13 +96,13 @@ class ResidentModal extends Component {
                             </div>
                             <div className="form-item">
                                 <label>Building <span className="req">*</span></label>
-                                 <input type="text" name="building"
-                                        onChange={this.handleChange.bind(this)}
-                                        value={this.state.building}></input>
+                                <input type="text" name="building"
+                                       onChange={this.handleChange.bind(this)}
+                                       value={this.state.building}></input>
                             </div>
                             <div className="form-item">
                                 <label>Room Number <span className="req">*</span></label>
-                                <input type="room" name="roomNb"
+                                <input type="text" name="roomNb"
                                        onChange={this.handleChange.bind(this)}
                                        value={this.state.roomNb}></input>
                              </div>
