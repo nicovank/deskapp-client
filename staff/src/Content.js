@@ -9,6 +9,8 @@ import KeyHistory from "./Key/KeyHistory.js"
 import KeyLog from "./Key/KeyLog.js"
 import Employee from "./Employee/Employee.js"
 import Resident from "./Resident/Resident.js";
+import Manage from "./Equipment/Manage.js";
+import KeyManage from "./Key/KeyManage.js";
 
 class Content extends Component {
 	render() {
@@ -18,13 +20,18 @@ class Content extends Component {
 					<Route exact path="/" component={Home}></Route>
 					<Route exact path="/communication" component={Communication}></Route>
 					<Route exact path="/communication/:page" component={Communication}></Route>
+
                     <Route exact path="/equipment/history/:id" component={History}></Route>
 					<Route exact path="/equipment/log" component={Log}></Route>
+					<Route exact path="/equipment/manage" component={Manage}></Route>
+
 					<Route exact path="/keys/log" component={KeyLog}></Route>
 					<Route exact path="/keys/history/:id" component={KeyHistory}></Route>
-					<Route exact path="/admin/employees" component={Employee}></Route>
-					<Route exact path="/residents/manage" component={Resident}></Route>
+					<Route exact path="/keys/manage" component={KeyManage}></Route>
 
+					<Route exact path="/admin/employees" component={Employee}></Route>
+					
+					<Route exact path="/residents/manage" component={Resident}></Route>
 				</Switch>
 			</div>
 		);

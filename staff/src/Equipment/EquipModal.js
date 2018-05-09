@@ -1,29 +1,27 @@
 import React, {Component} from "react";
 
-class ResidentModal extends Component {
+class EquipModal extends Component {
 
     constructor(props) {
         super(props);
-        this.state = props.resident;
+        this.state = props.equipment;
         this.state.create = true;
     }
 
     componentWillReceiveProps(props) {
-        if (!props.resident) {
+        if (!props.equipment) {
 
             // Blank state
             this.setState({
                 id: "",
-                firstName: "",
-                lastName: "",
-                roomNb: "",
-                email: "",
-                building: "",
+                building_id: "",
+                name: "",
+                category: "",
                 create: true
             });
 
         } else {
-            this.setState(props.resident);
+            this.setState(props.equipment);
             this.setState({
                 create: false
             });
@@ -41,7 +39,7 @@ class ResidentModal extends Component {
     submit() {
         window.$("#saveButton").addClass("disabled");
 
-        fetch("/api/residents/save", {
+        fetch("/api/equipment/save", {
             method: "POST",
             credentials: 'same-origin',
             headers: {
@@ -50,11 +48,9 @@ class ResidentModal extends Component {
             },
             body: JSON.stringify({
                 id: this.state.id,
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                building: this.state.building,
-                roomNb: this.state.roomNb,
-                email: this.state.email
+                building_id: this.state.building_id,
+                name: this.state.name,
+                category: this.state.category
             })
         })
 
@@ -70,47 +66,35 @@ class ResidentModal extends Component {
 
     render() {
         return (
-            <div id="resident-modal" className="modal-box hide">
+            <div id="equipment-modal" className="modal-box hide">
                 <div className="modal">
                     <span className="close"></span>
-                    <div className="modal-header">Add / Edit Resident</div>
+                    <div className="modal-header">Add / Edit Equipment</div>
                     <div className="modal-body">
                         <form className="form">
                             <div className="form-item">
-                                <label>Student ID <span className="req">*</span></label>
+                                <label>Equipment ID <span className="req">*</span></label>
                                 <input type="text" name="id" onChange={this.handleChange.bind(this)}
                                        className={(this.state.create ? "" : "disabled")}
                                        value={this.state.id}></input>
                             </div>
                             <div className="form-item">
-                                <label>First Name <span className="req">*</span></label>
-                                <input type="text" name="firstName"
-                                       onChange={this.handleChange.bind(this)}
-                                       value={this.state.firstName}></input>
+                                <label>Building ID <span className="req">*</span></label>
+                                <input type="text" name="building_id" onChange={this.handleChange.bind(this)}
+                                       className={(this.state.create ? "" : "disabled")}
+                                       value={this.state.building_id}></input>
                             </div>
                             <div className="form-item">
-                                <label>Last Name <span className="req">*</span></label>
-                                <input type="text" name="lastName"
+                                <label>Name <span className="req">*</span></label>
+                                <input type="text" name="name"
                                        onChange={this.handleChange.bind(this)}
-                                       value={this.state.lastName}></input>
+                                       value={this.state.name}></input>
                             </div>
                             <div className="form-item">
-                                <label>Building <span className="req">*</span></label>
-                                 <input type="text" name="building"
+                                <label>Category <span className="req">*</span></label>
+                                 <input type="text" name="category"
                                         onChange={this.handleChange.bind(this)}
-                                        value={this.state.building}></input>
-                            </div>
-                            <div className="form-item">
-                                <label>Room Number <span className="req">*</span></label>
-                                <input type="room" name="roomNb"
-                                       onChange={this.handleChange.bind(this)}
-                                       value={this.state.roomNb}></input>
-                             </div>
-                            <div className="form-item">
-                                <label>Email <span className="req">*</span></label>
-                                <input type="email" name="email" 
-                                        onChange={this.handleChange.bind(this)}
-                                        value={this.state.email}></input>
+                                        value={this.state.category}></input>
                             </div>
                             <div id="saveButton" className="button" onClick={this.submit.bind(this)}>Save</div>
                         </form>
@@ -121,4 +105,4 @@ class ResidentModal extends Component {
     }
 }
 
-export default ResidentModal;
+export default EquipModal;

@@ -1,41 +1,41 @@
 import React, {Component} from "react";
 
-import Modal from "./ResModal.js";
+import Modal from "./EquipModal.js";
 
-class Resident extends Component {
+class Manage extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
             html: <tr>
-                <td colSpan="7">
+                <td colSpan="5">
                     <div className="message">Loading data...</div>
                 </td>
             </tr>,
             data: [],
-            selectedResident: {},
+            selectedEquipment: {},
             selectedID: null
         };
 
         this.fetchData();
     }
 
-    openModal(residentInfo, id) {
+    openModal(equipmentInfo, id) {
         return function () {
             this.setState({
-                selectedResident: residentInfo,
+                selectedEquipment : equipmentInfo,
                 selectedID: id
             });
 
-            window.$.modalwindow({target: '#resident-modal'});
+            window.$.modalwindow({target: '#equipment-modal'});
         };
     }
 
-    delete(residentInfo, id) {
+    delete(equipmentInfo, id) {
         return function () {
-            if (window.confirm(`Do you really want to delete resident ${residentInfo.firstName} ${residentInfo.lastName} ?`)) {
-                fetch("/api/residents/delete", {
+            if (window.confirm(`Do you really want to delete equipment ${equipmentInfo.Name}?`)) {
+                fetch("/api/equipment/delete", {
                     method: "POST",
                     credentials: 'same-origin',
                     headers: {
@@ -63,11 +63,9 @@ class Resident extends Component {
             dataArray.push(
                 <tr>
                     <td>{record.id}</td>
-                    <td>{record.firstName}</td>
-                    <td>{record.lastName}</td>
-                    <td>{record.building}</td>
-                    <td>{record.roomNb}</td>
-                    <td>{record.email}</td>
+                    <td>{record.building_id}</td>
+                    <td>{record.name}</td>
+                    <td>{record.category}</td>
                     <td>
                         <button onClick={this.openModal(record, record.id).bind(this)}>
                             <i className="fas fa-edit"></i></button>
@@ -85,7 +83,7 @@ class Resident extends Component {
     }
 
     fetchData() {
-        fetch("/api/residents/list", {
+        fetch("/api/equipment/list", {
             method: "GET",
             credentials: 'same-origin',
             headers: {
@@ -108,7 +106,7 @@ class Resident extends Component {
             .catch(error => {
                 this.setState({
                     html: <tr>
-                        <td colSpan="7">
+                        <td colSpan="5">
                             <div className="message error">{error}</div>
                         </td>
                     </tr>
@@ -119,8 +117,8 @@ class Resident extends Component {
     render() {
         return (
             <div>
-                <Modal resident={this.state.selectedResident}></Modal>
-                <h2>Resident List</h2>
+                <Modal equipment={this.state.selectedEquipment}></Modal>
+                <h2>Manage Equipments</h2>
                 <div className="form-item right-align">
                     <button onClick={this.openModal(null, null).bind(this)}>
                         <i className="fas fa-plus"></i></button>
@@ -128,14 +126,11 @@ class Resident extends Component {
                 <table className="bordered striped">
                     <tr>
                         <th>ID</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Building</th>
-                        <th>Room Number</th>
-                        <th>Email</th>
+                        <th>Building ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
                         <th>Options</th>
                     </tr>
-
                     {this.state.html}
                 </table>
             </div>
@@ -143,4 +138,4 @@ class Resident extends Component {
     }
 }
 
-export default Resident;
+export default Manage;
