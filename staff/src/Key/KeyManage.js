@@ -13,29 +13,20 @@ class KeyManage extends Component {
                     <div className="message">Loading data...</div>
                 </td>
             </tr>,
-            data: [],
-            selectedKey: {},
-            selectedID: null
+            data: []
         };
 
         this.fetchData();
     }
 
-    openModal(keyInfo, id) {
-        return function () {
-            this.setState({
-                selectedKey : keyInfo,
-                selectedID: id
-            });
-
-            window.$.modalwindow({target: '#key-modal'});
-        };
+    openModal() {
+        window.$.modalwindow({target: '#key-modal'});
     }
 
-    delete(keyInfo, id) {
+    delete(id) {
         return function () {
-            if (window.confirm(`Do you really want to delete key ${keyInfo.id}?`)) {
-                fetch("/api/key/delete", {
+            if (window.confirm(`Do you really want to delete key ${id}?`)) {
+                fetch("/api/keys/delete", {
                     method: "POST",
                     credentials: 'same-origin',
                     headers: {
@@ -63,13 +54,9 @@ class KeyManage extends Component {
             dataArray.push(
                 <tr>
                     <td>{record.id}</td>
-                    <td>{record.building_id}</td>
                     <td>{record.type}</td>
                     <td>
-                        <button onClick={this.openModal(record, record.id).bind(this)}>
-                            <i className="fas fa-edit"></i></button>
-                        &nbsp;
-                        <button onClick={this.delete(record, record.id).bind(this)} className="button secondary">
+                        <button onClick={this.delete(record.id).bind(this)} className="button secondary">
                             <i className="fas fa-trash"></i></button>
                     </td>
                 </tr>
@@ -116,16 +103,15 @@ class KeyManage extends Component {
     render() {
         return (
             <div>
-                <Modal key={this.state.selectedKey}></Modal>
+                <Modal></Modal>
                 <h2>Manage Keys</h2>
                 <div className="form-item right-align">
-                    <button onClick={this.openModal(null, null).bind(this)}>
+                    <button onClick={this.openModal}>
                         <i className="fas fa-plus"></i></button>
                 </div>
                 <table className="bordered striped">
                     <tr>
                         <th>ID</th>
-                        <th>Building ID</th>
                         <th>Type</th>
                         <th>Options</th>
                     </tr>
