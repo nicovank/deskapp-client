@@ -31,6 +31,7 @@ class Home extends Component {
 				case "DA":
 					das.push(recordHTML);
 					break;
+				default: break;
 			}
 		}
 

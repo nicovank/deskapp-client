@@ -4,6 +4,7 @@ body, html, #root {
 
 body {
 	background: url(/public/bg.jpg) no-repeat fixed;
+	background-size: 100%;
 	border-top: 5px solid #222;
 	overflow-y: scroll;
 	word-break: break-all;
