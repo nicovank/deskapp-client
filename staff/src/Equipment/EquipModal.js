@@ -14,7 +14,6 @@ class EquipModal extends Component {
             // Blank state
             this.setState({
                 id: "",
-                building_id: "",
                 name: "",
                 category: "",
                 create: true
@@ -48,7 +47,6 @@ class EquipModal extends Component {
             },
             body: JSON.stringify({
                 id: this.state.id,
-                building_id: this.state.building_id,
                 name: this.state.name,
                 category: this.state.category
             })
@@ -77,12 +75,6 @@ class EquipModal extends Component {
                                 <input type="text" name="id" onChange={this.handleChange.bind(this)}
                                        className={(this.state.create ? "" : "disabled")}
                                        value={this.state.id}></input>
-                            </div>
-                            <div className="form-item">
-                                <label>Building ID <span className="req">*</span></label>
-                                <input type="text" name="building_id" onChange={this.handleChange.bind(this)}
-                                       className={(this.state.create ? "" : "disabled")}
-                                       value={this.state.building_id}></input>
                             </div>
                             <div className="form-item">
                                 <label>Name <span className="req">*</span></label>
