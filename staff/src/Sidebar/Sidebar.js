@@ -32,7 +32,7 @@ class Sidebar extends Component {
 						<li><Link to="/keys/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage Keys</Link></li>
 					</ul>
 
-					<p className="small category">Residents</p>
+					<p className={Sidebar.isManager() ? "small category" : "hide"}>Residents</p>
 					<ul className="unstyled">
 						<li><Link to="/residents/manage" className={Sidebar.isManager() ? "" : "hide"}>Manage Residents</Link></li>
 					</ul>
