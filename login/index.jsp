@@ -11,10 +11,10 @@
 	</head>
 	<body>
 		<div id="container">
-			<h1>Reslife DeskApp</h1>
-			<h2>Log in</h2>
-
 			<div id="login-box">
+
+			    <h1>Reslife DeskApp</h1>
+            	<h2>Log in</h2>
 
 				<% if (request.getAttribute("error") != null) { %>
 					<div class="message error">
