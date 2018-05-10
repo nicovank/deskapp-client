@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import Modal from "./KeyModal.js";
+import { Link } from 'react-router-dom';
 
 class KeyManage extends Component {
 
@@ -19,7 +20,7 @@ class KeyManage extends Component {
         this.fetchData();
     }
 
-    openModal() {
+    static openModal() {
         window.$.modalwindow({target: '#key-modal'});
     }
 
@@ -53,7 +54,7 @@ class KeyManage extends Component {
         for (let record of this.state.data) {
             dataArray.push(
                 <tr>
-                    <td>{record.id}</td>
+                    <td><Link to={"/keys/history/" + record.id}>{record.id}</Link></td>
                     <td>{record.type}</td>
                     <td>
                         <button onClick={this.delete(record.id).bind(this)} className="button secondary">

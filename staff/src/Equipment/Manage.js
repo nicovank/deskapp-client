@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 
 import Modal from "./EquipModal.js";
+import { Link } from 'react-router-dom';
 
 class Manage extends Component {
 
@@ -62,8 +63,7 @@ class Manage extends Component {
         for (let record of this.state.data) {
             dataArray.push(
                 <tr>
-                    <td>{record.id}</td>
-                    <td>{record.building_id}</td>
+                    <td><Link to={"/equipment/history/" + record.id}>{record.id}</Link></td>
                     <td>{record.name}</td>
                     <td>{record.category}</td>
                     <td>
@@ -126,7 +126,6 @@ class Manage extends Component {
                 <table className="bordered striped">
                     <tr>
                         <th>ID</th>
-                        <th>Building ID</th>
                         <th>Name</th>
                         <th>Category</th>
                         <th>Options</th>
