@@ -66,7 +66,7 @@ class ResidentModal extends Component {
 
                 window.location.reload();
             });
-    }
+    } 
 
     render() {
         return (
