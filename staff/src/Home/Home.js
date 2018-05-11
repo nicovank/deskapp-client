@@ -47,7 +47,7 @@ class Home extends Component {
 				<div>
 					<h3>Contact Info</h3>
 
-					<h4>RHDs</h4>
+					<h4 className="center-align">RHDs</h4>
 					<table className="bordered striped">
 						<tr>
 							<th>First Name</th>
@@ -56,9 +56,9 @@ class Home extends Component {
 							<th>Phone Number</th>
 						</tr>
 						{this.state.rhds}
-					</table>
+					</table><br />
 
-					<h4>AHDs</h4>
+					<h4 className="center-align">AHDs</h4>
 					<table className="bordered striped">
 						<tr>
 							<th>First Name</th>
@@ -67,9 +67,9 @@ class Home extends Component {
 							<th>Phone Number</th>
 						</tr>
 						{this.state.ahds}
-					</table>
+					</table><br />
 
-					<h4>RAs</h4>
+					<h4 className="center-align">RAs</h4>
 					<table className="bordered striped">
 						<tr>
 							<th>First Name</th>
@@ -78,9 +78,9 @@ class Home extends Component {
 							<th>Phone Number</th>
 						</tr>
 						{this.state.ras}
-					</table>
+					</table><br />
 
-					<h4>DAs</h4>
+					<h4 className="center-align">DAs</h4>
 					<table className="bordered striped">
 						<tr>
 							<th>First Name</th>

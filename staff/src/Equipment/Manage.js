@@ -35,7 +35,7 @@ class Manage extends Component {
 
     delete(equipmentInfo, id) {
         return function () {
-            if (window.confirm(`Do you really want to delete equipment ${equipmentInfo.Name}?`)) {
+            if (window.confirm(`Do you really want to delete equipment ${equipmentInfo.name}?`)) {
                 fetch("/api/equipment/delete", {
                     method: "POST",
                     credentials: 'same-origin',
