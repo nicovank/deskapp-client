@@ -33,7 +33,7 @@ class Manage extends Component {
         };
     }
 
-    delete(equipmentInfo, id) {
+    delete(equipmentInfo) {
         return function () {
             if (window.confirm(`Do you really want to delete equipment ${equipmentInfo.name}?`)) {
                 fetch("/api/equipment/delete", {
@@ -43,7 +43,7 @@ class Manage extends Component {
                         "Token": window.globals.token
                     },
                     body: JSON.stringify({
-                        id: id
+                        id: equipmentInfo.id
                     })
                 })
                     .then(res => res.json())
@@ -70,7 +70,7 @@ class Manage extends Component {
                         <button onClick={this.openModal(record, record.id).bind(this)}>
                             <i className="fas fa-edit"></i></button>
                         &nbsp;
-                        <button onClick={this.delete(record, record.id).bind(this)} className="button secondary">
+                        <button onClick={this.delete(record).bind(this)} className="button secondary">
                             <i className="fas fa-trash"></i></button>
                     </td>
                 </tr>
